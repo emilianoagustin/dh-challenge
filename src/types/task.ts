@@ -22,3 +22,8 @@ export interface ITaskState {
   toggleTask: (id: number) => void;
   setFilter: (filter: filter) => void;
 }
+
+export interface IErrorMessage {
+  message?: string;
+  retry?: () => void;
+}
