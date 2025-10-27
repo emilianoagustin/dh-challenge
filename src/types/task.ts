@@ -1,3 +1,5 @@
+import { TaskFormData } from "@/lib/validation";
+
 export interface ITask {
   id: number;
   title: string;
@@ -23,7 +25,18 @@ export interface ITaskState {
   setFilter: (filter: filter) => void;
 }
 
-export interface IErrorMessage {
+export interface IErrorMessageProps {
   message?: string;
   retry?: () => void;
+}
+
+export interface ITaskCardProps {
+  task: ITask;
+  onToggle?: () => void;
+  onDelete?: () => void;
+}
+
+export interface ITaskFormProps {
+  onSubmit: (data: TaskFormData) => void;
+  isSubmitting?: boolean;
 }

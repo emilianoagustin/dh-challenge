@@ -1,9 +1,11 @@
-import { IErrorMessage } from "@/types/task";
+"use client";
+
+import { IErrorMessageProps } from "@/types/task";
 
 export default function ErrorMessage({
   message = "Something went wrong",
   retry,
-}: IErrorMessage) {
+}: IErrorMessageProps) {
   return (
     <>
       <div>
