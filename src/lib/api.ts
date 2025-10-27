@@ -10,13 +10,6 @@ export const api = {
       ...task,
       description: `Description for ${task.title}`,
     }));
-    // return tasks.map((task: ITask) => ({
-    //   id: task.id,
-    //   title: task.title,
-    //   description: `Description for ${task.title}`,
-    //   completed: task.completed,
-    //   userId: task.userId,
-    // }));
   },
 
   async getTaskById(id: string): Promise<ITask> {
@@ -27,13 +20,6 @@ export const api = {
       ...task,
       description: `Description for ${task.title}`,
     };
-    // return {
-    //   id: task.id,
-    //   title: task.title,
-    //   description: `Description for ${task.title}`,
-    //   completed: task.completed,
-    //   userId: task.userId,
-    // };
   },
 
   async createTask(data: ICreateTaskInput): Promise<ITask> {
