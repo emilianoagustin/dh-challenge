@@ -8,9 +8,9 @@ export default function ErrorMessage({
 }: IErrorMessageProps) {
   return (
     <>
-      <div>
-        <div>
-          <div className="flex items-center gap-3 mb-4">
+      <div className="h-svh flex items-center justify-center">
+        <div className="w-full flex flex-col justify-center items-center gap-3 mb-4">
+          <div className="flex gap-3">
             <svg
               className="w-6 h-6 text-red-600"
               fill="none"
@@ -27,10 +27,11 @@ export default function ErrorMessage({
             <h3 className="text-lg font-semibold text-red-900">Error</h3>
           </div>
           <p className="text-red-700 mb-4">{message}</p>
+
           {retry && (
             <button
               onClick={retry}
-              className="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition"
+              className="w-1/5 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition cursor-pointer"
             >
               Try again
             </button>

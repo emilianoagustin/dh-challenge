@@ -36,7 +36,7 @@ export default function TaskForm({ onSubmit, isSubmitting }: ITaskFormProps) {
           {...register("title")}
           type="text"
           id="title"
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+          className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
           placeholder="Enter task title"
         />
         {errors.title && (
@@ -55,7 +55,7 @@ export default function TaskForm({ onSubmit, isSubmitting }: ITaskFormProps) {
           {...register("description")}
           id="description"
           rows={4}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+          className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
           placeholder="Enter task description"
         />
         {errors.description && (

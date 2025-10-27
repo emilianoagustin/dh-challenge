@@ -6,16 +6,14 @@ import { ITaskCardProps } from "@/types/task";
 export default function TaskCard({ task, onToggle, onDelete }: ITaskCardProps) {
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition">
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-start justify-between mb-8">
         <div className="flex items-start gap-3 flex-1">
-          {onToggle && (
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={onToggle}
-              className="mt-1 w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
-            />
-          )}
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={onToggle}
+            className="mt-1 w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          />
           <div className="flex-1">
             <h3
               className={`text-lg font-semibold ${
@@ -37,21 +35,19 @@ export default function TaskCard({ task, onToggle, onDelete }: ITaskCardProps) {
           {task.completed ? "Completed" : "Active"}
         </span>
       </div>
-      <div className="flex gap-2 mt-4">
+      <div className="flex justify-end gap-2 mt-4">
         <Link
           href={`/tasks/${task.id}`}
-          className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition text-center text-sm"
+          className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition text-center text-sm"
         >
           View Details
         </Link>
-        {onDelete && (
-          <button
-            onClick={onDelete}
-            className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition text-sm"
-          >
-            Delete
-          </button>
-        )}
+        <button
+          onClick={onDelete}
+          className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition text-sm cursor-pointer"
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

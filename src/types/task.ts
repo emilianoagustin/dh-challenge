@@ -40,3 +40,17 @@ export interface ITaskFormProps {
   onSubmit: (data: TaskFormData) => void;
   isSubmitting?: boolean;
 }
+
+export interface ITaskListProps {
+  initialTasks: ITask[];
+}
+
+export interface ITaskDetailProps {
+  task: ITask;
+}
+
+export interface ITaskDetailPageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
