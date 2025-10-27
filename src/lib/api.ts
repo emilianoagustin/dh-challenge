@@ -7,12 +7,16 @@ export const api = {
     if (!response.ok) throw new Error("Failed to fetch tasks");
     const tasks = await response.json();
     return tasks.map((task: ITask) => ({
-      id: task.id,
-      title: task.title,
+      ...task,
       description: `Description for ${task.title}`,
-      completed: task.completed,
-      userId: task.userId,
     }));
+    // return tasks.map((task: ITask) => ({
+    //   id: task.id,
+    //   title: task.title,
+    //   description: `Description for ${task.title}`,
+    //   completed: task.completed,
+    //   userId: task.userId,
+    // }));
   },
 
   async getTaskById(id: string): Promise<ITask> {
@@ -20,12 +24,16 @@ export const api = {
     if (!response.ok) throw new Error("Failed to fetch task");
     const task = await response.json();
     return {
-      id: task.id,
-      title: task.title,
+      ...task,
       description: `Description for ${task.title}`,
-      completed: task.completed,
-      userId: task.userId,
     };
+    // return {
+    //   id: task.id,
+    //   title: task.title,
+    //   description: `Description for ${task.title}`,
+    //   completed: task.completed,
+    //   userId: task.userId,
+    // };
   },
 
   async createTask(data: ICreateTaskInput): Promise<ITask> {
@@ -38,7 +46,7 @@ export const api = {
     return response.json();
   },
 
-  async deleteTask(id: string): Promise<void> {
+  async deleteTask(id: number): Promise<void> {
     const response = await fetch(`${API_URL}/todos/${id}`, {
       method: "DELETE",
     });

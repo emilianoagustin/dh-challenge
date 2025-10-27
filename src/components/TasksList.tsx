@@ -4,23 +4,22 @@ import { useEffect } from "react";
 import { useTaskStore } from "@/hooks/useTaskStore";
 import { useTasks } from "@/hooks/useTasks";
 import TaskCard from "@/components/TaskCard";
-import { ITaskListProps } from "@/types/task";
 
-export default function TasksList({ initialTasks }: ITaskListProps) {
+export default function TasksList() {
   const { tasks, filter, stats, setTasks, toggleTask, removeTask, setFilter } =
     useTaskStore();
-  const { deleteTask } = useTasks();
+  const { tasks: taskQuery = [], deleteTask } = useTasks();
 
   useEffect(() => {
-    if (initialTasks.length > 0) setTasks(initialTasks);
-  }, [initialTasks, setTasks]);
+    if (taskQuery.length > 0) setTasks(taskQuery);
+  }, [taskQuery, setTasks]);
 
   const handleDelete = (id: number) => {
     removeTask(id);
     deleteTask(id);
   };
 
-  if (tasks.length === 0 && initialTasks.length === 0) {
+  if (tasks.length === 0 && taskQuery.length === 0) {
     return (
       <div className="text-center py-16">
         <p className="text-gray-500 text-lg">
